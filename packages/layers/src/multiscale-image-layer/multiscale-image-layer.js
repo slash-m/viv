@@ -49,10 +49,11 @@ const defaultProps = {
  * @type {{ new <S extends string[]>(...props: import('@vivjs/types').Viv<LayerProps, S>[]) }}
  * @ignore
  */
+//@audit-info - forwarded to deckgl for rendering
 const MultiscaleImageLayer = class extends CompositeLayer {
   renderLayers() {
     const {
-      loader,
+      loader, //@audit-info PixelSource child
       selections,
       opacity,
       viewportId,
@@ -133,7 +134,7 @@ const MultiscaleImageLayer = class extends CompositeLayer {
 
     const { height, width } = getImageSize(loader[0]);
     const tiledLayer = new MultiscaleImageLayerBase(this.props, {
-      id: `Tiled-Image-${id}`,
+      id: `Tiled-Image-${id}`,2302
       getTileData,
       dtype,
       tileSize,

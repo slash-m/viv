@@ -35,6 +35,7 @@ interface ZarrTileSelection {
   signal?: AbortSignal;
 }
 
+//@audit-info - a pixel source used for zarr arrays
 class ZarrPixelSource<S extends string[]> implements PixelSource<S> {
   private _data: ZarrArray;
 
@@ -126,7 +127,7 @@ class ZarrPixelSource<S extends string[]> implements PixelSource<S> {
       const sel = this._chunkIndex(selection, xSlice, ySlice);
       res = await this._data.getRaw(sel);
     }
-
+    console.log(res) //@audit - seems like it's a UINT16 array, at least for omero test sample. Does it mean that every pixel can be of 65535 colors?
     const {
       data,
       shape: [height, width]

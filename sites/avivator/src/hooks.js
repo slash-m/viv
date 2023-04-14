@@ -61,7 +61,8 @@ export const useImage = (source, history) => {
         nextMeta = newLoader.metadata;
         nextLoader = newLoader.data;
       }
-      if (nextLoader) {
+      if (nextLoader) { //@audit-info useful for displaying debugging info
+        console.info(nextLoader);
         console.info(
           'Metadata (in JSON-like form) for current file being viewed: ',
           nextMeta

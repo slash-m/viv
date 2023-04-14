@@ -16,10 +16,10 @@ module.exports = {
   rules: {
     // My practice is to use "log" for messages I intend to clean up before merging.
     // All these others reflect the intension that they should be left in the codebase.
-    'no-console': [
-      2,
-      { allow: ['warn', 'error', 'info', 'groupCollapsed', 'groupEnd'] }
-    ],
+    // 'no-console': [
+    //   2,
+    //   { allow: ['warn', 'error', 'info', 'groupCollapsed', 'groupEnd'] }
+    // ],
     'no-underscore-dangle': [0],
     '@typescript-eslint/no-empty-function': [0],
     // Non-alphabetical groupings can make more sense.
