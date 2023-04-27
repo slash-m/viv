@@ -134,7 +134,7 @@ const MultiscaleImageLayer = class extends CompositeLayer {
 
     const { height, width } = getImageSize(loader[0]);
     const tiledLayer = new MultiscaleImageLayerBase(this.props, {
-      id: `Tiled-Image-${id}`,2302
+      id: `Tiled-Image-${id}`,
       getTileData,
       dtype,
       tileSize,

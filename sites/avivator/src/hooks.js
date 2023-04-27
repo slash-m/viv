@@ -39,6 +39,7 @@ export const useImage = (source, history) => {
       useViewerStore.setState({ isViewerLoading: true });
       if (use3d) toggleUse3d();
       const { urlOrFile } = source;
+      //@audit-info 0. this is where the loader is created
       const newLoader = await createLoader(
         urlOrFile,
         toggleIsOffsetsSnackbarOn,

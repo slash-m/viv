@@ -75,5 +75,6 @@ export async function loadOmeZarr(
     throw Error('Only multiscale OME-Zarr is supported.');
   }
 
+  //@audit-info - 2. Loads ome-zarr
   return loadOme(store);
 }

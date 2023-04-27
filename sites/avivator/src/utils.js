@@ -207,6 +207,7 @@ export async function createLoader(
       return source;
     }
 
+    //@audit-info 1. First it tries to load Bioformats zarr and then, if it doesn't work - loads ome-zarr
     // Bio-Formats Zarr
     let source;
     try {

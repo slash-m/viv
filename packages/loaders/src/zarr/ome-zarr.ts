@@ -44,11 +44,12 @@ export interface RootAttrs {
 }
 
 export async function load(store: ZarrArray['store']) {
-  const { data, rootAttrs, labels } = await loadMultiscales(store); //@audit-info this is where the data is loaded from zarr using `zarr` library + HTTPStore underneath
+  const { data, rootAttrs, labels } = await loadMultiscales(store); //@audit-info 3a. this is where the data is loaded from zarr using `zarr` library + HTTPStore underneath
   const tileSize = guessTileSize(data[0]);
   console.log('OME-ZARR data loaded');
   console.log(data)
-  const pyramid = data.map(arr => new ZarrPixelSource(arr, labels, tileSize)); //@audit-info this is where the pyramid (multi-layered zarr presented as Array[ZarrPixelsource]) is created
+  const pyramid = data.map(arr => new ZarrPixelSource(arr, labels, tileSize)); //@audit-info 3b. this is where the pyramid (multi-layered zarr presented as Array[ZarrPixelsource]) is created
+  console.log('Pyramid is' + JSON.stringify(pyramid))
   return {
     data: pyramid,
     metadata: rootAttrs
