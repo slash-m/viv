@@ -80,7 +80,12 @@ function castLabels(dimnames: string[]) {
 
 export async function loadMultiscales(store: ZarrArray['store'], path = '') {
   const grp = await openGroup(store, path);
+  const annotationsGrp = await openGroup(store, path + "/labels");
   const rootAttrs = (await grp.attrs.asObject()) as RootAttrs;
+  const annotationsGrpAttrs = (await annotationsGrp.attrs.asObject());
+  const p = annotationsGrp.getItem(annotationsGrpAttrs.labels[0])
+  const result = await p as ZarrArray
+
 
   let paths = ['0'];
   // Default axes used for v0.1 and v0.2.
